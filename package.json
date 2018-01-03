@@ -1,0 +1,11 @@
+{
+  "name": "vologda-forest",
+  "version": "0.0.1",
+  "description": "Сайт для крестной сына",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Skvortsov Maksim",
+  "license": "MIT"
+}
