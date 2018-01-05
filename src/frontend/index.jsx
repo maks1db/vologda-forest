@@ -7,6 +7,7 @@ import 'scss/index.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
+import 'animate.css/animate.min.css';
 
 const render = Component => {
     ReactDOM.render(

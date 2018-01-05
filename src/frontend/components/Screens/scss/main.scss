@@ -126,10 +126,10 @@
     .content {
         text-align: center;
     }
-    &.about {
+    &.section_background {
         background-color: #f2f2f2;
     }
-    &.jury {
+    &.section_empty {
         background-color: rgba(235, 235, 235, 0);
         padding-left: 80px;
         padding-right: 80px;
@@ -145,6 +145,11 @@
 
 .box {
     display: block;
+    position: relative;
+    h3 {
+        margin-bottom: 30px !important;
+        margin-top: -30px !important;
+    }
     .img {
         width: 220px;
         height: 220px;
@@ -155,5 +160,8 @@
         position: relative;
         background-size: cover;
         background-position: 50% 50%;
+    }
+    p {
+        margin-top: -15px;
     }
 }

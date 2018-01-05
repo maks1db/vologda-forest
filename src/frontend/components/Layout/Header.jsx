@@ -10,7 +10,7 @@ const NavItems = () => {
         <ul>
             <NavLi href='/' title="Главная" onClick={() => scrollTo('#main')}/>
             <NavLi title="О нас" onClick={() => scrollTo('#about')}/>
-            <NavLi title="Раздел 2" onClick={() => scrollTo('#jury')} />
+            <NavLi title="Продукция" onClick={() => scrollTo('#items')} />
             <NavLi title="Контакты" onClick={() => scrollTo('#contacts')} />
         </ul>);
 };
