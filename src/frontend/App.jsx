@@ -1,5 +1,6 @@
 import React from 'react';
 import Main from 'containers/Main.jsx';
+import Layout from 'containers/Layout.jsx';
 
 export default class App extends React.Component{
 
@@ -8,6 +9,6 @@ export default class App extends React.Component{
     }
 
     render() { 
-        return (<Main />);
+        return <Layout><Main /></Layout>;
     }
 }

@@ -110,7 +110,7 @@ module.exports = {
         modules: [
             'node_modules',
             path.resolve(__dirname, 'src/frontend'),
-            path.resolve(__dirname, 'src/components/frontend')
+            path.resolve(__dirname, 'src/frontend/components')
         ]
     },
     module: {

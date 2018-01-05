@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App.jsx';
 import { AppContainer } from 'react-hot-loader';
 
+import 'scss/index.scss';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
+
 const render = Component => {
     ReactDOM.render(
         <AppContainer>
