@@ -1,21 +1,35 @@
 import React, { PureComponent } from 'react';
 import styles from './scss/main.scss';
+import styles_request from './scss/request.scss';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Col from 'Controls/Col.jsx';
 import Row from 'Controls/Row.jsx'; 
+import Input from 'Controls/Input.jsx';
+import Textarea from 'Controls/Textarea.jsx';
 
-const Item = ({ ico, children }) => (
-    <ScrollAnimation animateIn="slideInLeft" animateOnce={true} offset={-120}>
-        <div className={styles.request_item}>
-            <div className={styles.request_icon}><i className={`fa ${ico}`}></i></div>
-            <p>{children}</p>
-        </div>
-    </ScrollAnimation>
+const Item = ({ ico, children, animation }) => (
+   
+    <div className={styles.request_item}>
+        <div className={styles.request_icon}><i className={`fa ${ico}`}></i></div>
+        <p>{children}</p>
+    </div>
+    
 );
+
+const init = (key, props) => {
+    return {
+        errorMessage: props[key].error,
+        defaultValue: props[key].value,
+        onChange: (e) => props.onChangeKey(key, e.target.value)
+    };
+};
 
 export default class IndexSreen extends PureComponent {
 
     render() {
+
+        const { onSendRequest } = this.props;
+
         return (
             <section className={`${styles.section} ${styles.section_background}`} id="request">
                 <div className={styles.content}>
@@ -27,17 +41,43 @@ export default class IndexSreen extends PureComponent {
                     </ScrollAnimation>
                     <Row>
                         <Col number={6}>
-                            <Item ico="fa-shopping-cart">
+                            <ScrollAnimation animateIn="slideInLeft" animateOnce={true} offset={-120}>
+                                <Item ico="fa-shopping-cart">
                                 Большой ассортимент - более 20 видов наименований
-                            </Item>
-                            <Item ico="fa-percent">
+                                </Item>
+                                <Item ico="fa-percent" animation="fadeInUp">
                                 Подберем для вас оптимальное и наиболее выгодное решение
-                            </Item>
-                            <Item ico="fa-refresh">
+                                </Item>
+                                <Item ico="fa-refresh">
                                 Быстрая обработка заявок, оперативная доставка
-                            </Item>
+                                </Item>
+                            </ScrollAnimation>
                         </Col>
-                        <Col number={6}>П</Col>
+                        <Col number={6}>
+                            <ScrollAnimation animateIn="fadeInRight" animateOnce={true} offset={-100}>
+                                <div className={styles_request.controls}>
+                                    <Input
+                                        label="Ваше имя*"
+                                        {...init('name', this.props)}
+                                    />
+                                    <Input
+                                        label="Ваш телефон*"
+                                        mask={'+7 (999) 999-99-99'}
+                                        maskChar='_'
+                                        {...init('phone', this.props)}
+                                    />
+                                    <Textarea
+                                        label="Комментарий"
+                                        rows={5}
+                                        {...init('description', this.props)}
+                                    />
+                                    <button 
+                                        onClick={onSendRequest}
+                                        type="button" 
+                                        className="btn btn-success">Отправить заявку</button>
+                                </div>
+                            </ScrollAnimation>
+                        </Col>
                     </Row>
                 </div>
             </section>

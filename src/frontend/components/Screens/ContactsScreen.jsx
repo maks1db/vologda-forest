@@ -18,7 +18,7 @@ export default class IndexSreen extends PureComponent {
                         <p><b>Елена</b> - 8 (950) 111-22-33</p>
                     </ScrollAnimation>
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                        <p><b>Муж Елены</b> - 8 (910) 111-22-33</p>
+                        <p><b>Антон</b> - 8 (910) 111-22-33</p>
                     </ScrollAnimation>  
                 </div>
             </section>

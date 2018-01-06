@@ -1,0 +1,6 @@
+.controls {
+    padding-right: 100px;
+    & > div > label:first-child {
+        float: left;
+    }
+}
