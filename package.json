@@ -1,6 +1,6 @@
 {
   "name": "vologda-forest",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Сайт для крестной сына",
   "main": "index.js",
   "scripts": {

@@ -13,11 +13,8 @@ export default class AboutScreen extends PureComponent {
                         <h5>О НАС</h5>       
                     </ScrollAnimation>
                     
-                    <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                    <ScrollAnimation animateIn="fadeInUp" animateOnce={true} offset={-100}>
                         <h2>Здравствуйте!</h2>       
-                    </ScrollAnimation>
-                     
-                    <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                         <div className={styles.toLeft}>   
                             <p className={styles.ident_20}>Компания "Вологодский лес" предлагает Вам приобрести пиломатериалы как премиум-класса, так и бюджетной категории по выгодным ценам со склада в Липецкой области. Более 15 лет на рынке. Производим широкий сортимент из Вологодского леса.</p> 
                             <p className={styles.ident_20}>

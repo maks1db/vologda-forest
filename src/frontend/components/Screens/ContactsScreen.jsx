@@ -6,7 +6,7 @@ export default class IndexSreen extends PureComponent {
 
     render() {
         return (
-            <section className={`${styles.section} ${styles.section_background}`} id="contacts">
+            <section className={`${styles.section} ${styles.section_empty}`} id="contacts">
                 <div className={styles.content}>
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                         <h5>Контакты</h5>
