@@ -1,6 +1,6 @@
 {
   "name": "vologda-forest",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Сайт для крестной сына",
   "main": "index.js",
   "scripts": {
@@ -49,7 +49,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.26.1",
