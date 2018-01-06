@@ -64,13 +64,13 @@ if (!isDevelopment) {
         sourceMap: false,
         output: {comments: false}
     }));
-    plugins.push(new ExtractTextPlugin(`/css/styles.min${'.v.' + version}.css`));
+    plugins.push(new ExtractTextPlugin(`/css/styles.min.css?v=${version}`));
 
     sassLoader = {
-        test: /\.less$/,
+        test: /\.scss$/,
         loader: ExtractTextPlugin.extract( {
             fallback: 'style-loader', 
-            use: 'css-loader!postcss-loader!less-loader',
+            use: 'css-loader?source-map&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass-loader',
             publicPath: '/assets/' 
         } )
     }; 
@@ -83,11 +83,12 @@ else {
     entry.push('react-hot-loader/patch');
     plugins.push(new webpack.NamedModulesPlugin());
     plugins.push(new webpack.HotModuleReplacementPlugin());
-    
-    
-    sassLoader = {
-        test: /\.scss$/,
-        use: [ 'style-loader', 'css-loader?source-map&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'sass-loader' ]
+
+    sassLoader = { 
+        test: /\.scss$/, 
+        use: ['style-loader', 
+            'css-loader?source-map&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+            'sass-loader'] 
     };
 }
 
@@ -98,7 +99,7 @@ module.exports = {
     output: {
         path:     path.resolve(__dirname, 'public', 'assets/'),
         publicPath: '/assets/',
-        filename: `js/index${isDevelopment ? '' : '.v.' + version}.js`,
+        filename: `js/index.js${isDevelopment ? '' : '?v=' + version}`,
         sourceMapFilename: 'index.js.map'
     },
     devtool: isDevelopment && 'inline-source-map',

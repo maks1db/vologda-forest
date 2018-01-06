@@ -1,11 +1,13 @@
 {
   "name": "vologda-forest",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Сайт для крестной сына",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --content-base public --debug --output-pathinfo --watch --inline --port 4001",
-    "build": "upv && NODE_ENV=production webpack -p"
+    "build": "NODE_ENV=production webpack -p",
+    "dev": "NODE_ENV=dev node index.js",
+    "prod": "node index.js"
   },
   "dependencies": {
     "express": "^4.16.2",

@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const routes = require('../routes');
-const db = require('../db');
 
 const app = express();  
 
@@ -31,7 +30,6 @@ app.get('*',function(req,res){
     res.sendFile(path.resolve(__dirname, '../../../public/', 'index.html'));
 });
 
-db.connect();
 app.listen(port, ()=> console.log('Server VOLOGDA-FOREST on ' + port));
 
 module.exports = app;
