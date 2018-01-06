@@ -18,10 +18,13 @@ export default class IndexSreen extends PureComponent {
                             <h1>Вологодские пиломатериалы в Липецке</h1>       
                         </ScrollAnimation>
                         <a onClick={() => scrollTo('#request')} className={styles.register}>
-                            Оставить заявку<span className="fa fa-long-arrow-right"></span>
+                            Заказать звонок<span className="fa fa-long-arrow-right"></span>
                         </a>
                         <ScrollAnimation animateIn="fadeInUp" delay={200} animateOnce={true}>
-                            <h4>Оставьте заявку на звонок прямо сейчас</h4>       
+                            <h4>
+                                Есть вопросы? <br/>
+                                Оставьте заявку на звонок прямо сейчас
+                            </h4>       
                         </ScrollAnimation>
                         
                     </div>

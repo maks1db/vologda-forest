@@ -32,12 +32,15 @@ export default class IndexSreen extends PureComponent {
 
         return (
             <section className={`${styles.section} ${styles.section_background}`} id="request">
-                <div className={styles.content}>
+                <div className={styles.content} style={{
+                    paddingLeft: '15px',
+                    paddingRight: '15px'
+                }}>
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                         <h5>Есть вопросы?</h5>
                     </ScrollAnimation>
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                        <h2>Оставьте заявку и мы свяжемся с вами в течении 10 минут</h2>
+                        <h2>Оставьте заявку и мы свяжемся с вами в течении нескольких минут</h2>
                     </ScrollAnimation>
                     <Row>
                         <Col number={6}>
@@ -73,8 +76,14 @@ export default class IndexSreen extends PureComponent {
                                     />
                                     <button 
                                         onClick={onSendRequest}
+                                        style={{
+                                            background:'#FFDC40',
+                                            color:'#313131',
+                                            borderColor: '#FFDC40',
+                                            fontWeight: 600
+                                        }}
                                         type="button" 
-                                        className="btn btn-success">Отправить заявку</button>
+                                        className="btn btn-success">Заказать звонок</button>
                                 </div>
                             </ScrollAnimation>
                         </Col>

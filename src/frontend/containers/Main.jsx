@@ -5,6 +5,8 @@ import ContactsScreen from 'Screens/ContactsScreen.jsx';
 import ItemsScreen from 'Screens/ItemsScreen.jsx';
 import AdvantageScreen from 'Screens/AdvantageScreen.jsx';
 import RequestScreen from 'Screens/RequestScreen.jsx';
+import { toastr } from 'react-redux-toastr';
+import { send } from 'api';
 
 const validate = (key, value) => {
 
@@ -61,8 +63,18 @@ export default class Main extends Component {
         });
         
         if (!nameErrors && !phoneErrors) {
-            //send
+            send({
+                name: this.state.name.value,
+                phone: this.state.phone.value,
+                description: this.state.description.value
+            })
+                .then(() => {
+                    toastr.success('Заявка отправлена', 
+                        'Ваша заявка отправлена нашим менеджерам.');
+                });
         }
+
+        
     }
 
     onChangeKey = (key, value) => {
