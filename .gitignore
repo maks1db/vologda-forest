@@ -3,4 +3,5 @@ public/assets/js/
 .vscode
 .directory
 public/index.html
+public/assets/css
 package-lock.json
