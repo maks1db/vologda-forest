@@ -5,13 +5,25 @@ import classname from 'helpers/classname.js';
 import ToTop from 'react-scroll-top';
 import scrollTo from 'helpers/scrollTo';
 
-const NavItems = () => {
+const NavItems = ( { onClick }) => {
     return(
         <ul>
-            <NavLi href='/' title="Главная" onClick={() => scrollTo('#main')}/>
-            <NavLi title="О нас" onClick={() => scrollTo('#about')}/>
-            <NavLi title="Продукция" onClick={() => scrollTo('#items')} />
-            <NavLi title="Контакты" onClick={() => scrollTo('#contacts')} />
+            <NavLi title="Главная" onClick={() => {
+                scrollTo('#main');
+                onClick();
+            }}/>
+            <NavLi title="О нас" onClick={() => {
+                scrollTo('#about');
+                onClick();
+            }}/>
+            <NavLi title="Продукция" onClick={() => {
+                scrollTo('#items');
+                onClick();
+            }} />
+            <NavLi title="Контакты" onClick={() => {
+                scrollTo('#contacts');
+                onClick();
+            }} />
         </ul>);
 };
 
@@ -20,7 +32,8 @@ export default class Header extends React.PureComponent {
     constructor() {
         super();
         this.state = {
-            background: false
+            background: false, 
+            activeMenu: false
         };
     }
 
@@ -41,16 +54,34 @@ export default class Header extends React.PureComponent {
         window.addEventListener('scroll', this.onScroll);
     }
 
-    componentWIllUnmount() {
+    componentWillUnmount() {
         window.removeEventListener('scroll', this.onScroll);
+    }
+
+    onChangeActiveMenu = (value) => {
+        const { activeMenu } = this.state;
+        this.setState({ activeMenu: value !== undefined ? value : !activeMenu});
     }
 
     render() {
 
+        const { activeMenu } = this.state;
+
         return (<div {...classname({[styles.background]: this.state.background}, styles.header)}>
             <div className={styles.title}>Вологодский лес</div> 
-            <nav className={styles.navigation}>
-                <NavItems />   
+            <nav {...classname({[styles.active_menu]: activeMenu}, styles.navigation)}>
+                <NavItems onClick={() => this.onChangeActiveMenu(false)} />   
+                <div 
+                    {...classname({ [styles.humburgerActive]: activeMenu }, styles.humburger)}
+                    onClick={() => this.onChangeActiveMenu()}
+                >
+                    <i 
+                        {...classname({
+                            'fa-bars': !activeMenu,
+                            'fa-times': activeMenu
+                        }, 'fa')} 
+                        aria-hidden="true"></i>
+                </div>
             </nav>
             <div className={styles['to-top']} >
                 <ToTop 

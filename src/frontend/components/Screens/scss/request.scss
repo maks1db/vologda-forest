@@ -4,3 +4,8 @@
         float: left;
     }
 }
+@media (max-width: 992px) {
+    .controls {
+        padding: 0 10% !important;
+    }
+}

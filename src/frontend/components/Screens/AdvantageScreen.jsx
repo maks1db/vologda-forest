@@ -19,7 +19,11 @@ export default class AdvantageSreen extends PureComponent {
 
     render() {
         return (
-            <section className={`${styles.section} ${styles.section_empty} ${styles.section_disable_bottom }`} id="advantage">
+            <section className={`${styles.section} 
+                ${styles.section_empty} 
+                ${styles.section_disable_bottom }
+                ${styles.compact }
+                `} id="advantage">
                 <div className={styles.content}>
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                         <h5>НАШИ ПРЕИМУЩЕСТВА</h5>

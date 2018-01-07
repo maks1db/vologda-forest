@@ -29,7 +29,9 @@ export default class ContactsSreen extends PureComponent {
     render() {
         return (
             <div ref={(e) => this.item = e}>
-                <section className={`${styles.section} ${styles.section_empty} ${styles.section_disable_bottom }`} id="contacts">
+                <section className={`${styles.section} 
+                    ${styles.section_empty} 
+                    ${styles.compact }`} id="contacts">
                     <div className={styles.content}>
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                             <h5>Контакты</h5>
@@ -44,7 +46,7 @@ export default class ContactsSreen extends PureComponent {
                             <p><b>Антон</b> - 8 (910) 111-22-33</p>
                         </ScrollAnimation> 
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                            <p><b>г. Липецк, Трубный проезд, 6</b></p>
+                            <p><b>г.&nbsp;Липецк,&nbsp;Трубный&nbsp;проезд,&nbsp;6</b></p>
                         </ScrollAnimation> 
                     </div>
                 </section>
