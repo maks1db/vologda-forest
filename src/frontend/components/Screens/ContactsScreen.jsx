@@ -40,7 +40,7 @@ export default class ContactsSreen extends PureComponent {
                             <h2>Контактная информация</h2>
                         </ScrollAnimation>
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                            <p><b>г.&nbsp;Липецк,&nbsp;Трубный&nbsp;проезд,&nbsp;вл.&nbsp;6</b></p>
+                            <p><b>г.&nbsp;Липецк, Трубный&nbsp;проезд, вл.&nbsp;6</b></p>
                         </ScrollAnimation> 
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                             <p>
