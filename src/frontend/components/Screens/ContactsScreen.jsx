@@ -40,14 +40,15 @@ export default class ContactsSreen extends PureComponent {
                             <h2>Контактная информация</h2>
                         </ScrollAnimation>
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                            <p><b>Елена</b> - 8 (950) 111-22-33</p>
-                        </ScrollAnimation>
-                        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                            <p><b>Антон</b> - 8 (910) 111-22-33</p>
+                            <p><b>г.&nbsp;Липецк,&nbsp;Трубный&nbsp;проезд,&nbsp;вл.&nbsp;6</b></p>
                         </ScrollAnimation> 
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                            <p><b>г.&nbsp;Липецк,&nbsp;Трубный&nbsp;проезд,&nbsp;6</b></p>
+                            <p>
+                                <b>+7 (4742) 71-82-94, 34-80-94,<br />
+                                +7 (951) 301-84-59</b>
+                            </p>
                         </ScrollAnimation> 
+                        
                     </div>
                 </section>
                 <div id="map"></div>
