@@ -16,7 +16,7 @@ export default class IndexSreen extends PureComponent {
                             +7 (951) 301-84-59
                         </h4>
                         <ScrollAnimation animateIn="zoomIn" animateOnce={true} offset={-200}>
-                            <h1>Вологодские&nbsp;пиломатериалы в&nbsp;Липецке</h1>       
+                            <h1>Вологодские пиломатериалы в Липецке</h1>       
                         </ScrollAnimation>
                         <a onClick={() => scrollTo('#request')} className={styles.register}>
                             Заказать звонок<span className="fa fa-long-arrow-right"></span>
