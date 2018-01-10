@@ -7,6 +7,7 @@ import AdvantageScreen from 'Screens/AdvantageScreen.jsx';
 import RequestScreen from 'Screens/RequestScreen.jsx';
 import { toastr } from 'react-redux-toastr';
 import { send } from 'api';
+import scrollTo from 'helpers/scrollTo';
 
 const validate = (key, value) => {
 
@@ -89,6 +90,12 @@ export default class Main extends Component {
         this.setState({[key]: {
             value, error: this.clickSendButton ? validate(key, value) : false
         }});
+    }
+
+    componentDidMount() {
+        if (location.hash) {
+            scrollTo(location.hash);
+        }
     }
 
     render() {

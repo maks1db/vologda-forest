@@ -18,7 +18,18 @@ export default class IndexSreen extends PureComponent {
                         <ScrollAnimation animateIn="zoomIn" animateOnce={true} offset={-200}>
                             <h1>Вологодские пиломатериалы в Липецке</h1>       
                         </ScrollAnimation>
-                        <a onClick={() => scrollTo('#request')} className={styles.register}>
+                        <a href="#request" onClick={(e) => {
+                            const selector = '#request';
+                            e.preventDefault();
+                            
+                            if(history.pushState) {
+                                history.pushState(null, null, selector);
+                            }
+                            else {
+                                location.hash = selector;
+                            }
+                            scrollTo(selector);
+                        }} className={styles.register}>
                             Заказать звонок<span className="fa fa-long-arrow-right"></span>
                         </a>
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true} delay={1000} offset={-200}>
