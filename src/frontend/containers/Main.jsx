@@ -54,9 +54,6 @@ export default class Main extends Component {
 
     onSendRequest = () => {
         this.clickSendButton = true;
-        this.setState({
-            message: { isFetching: true, send: false}
-        });
 
         const nameErrors = validate('name', this.state.name.value);
         const phoneErrors = validate('phone', this.state.phone.value);
@@ -67,6 +64,9 @@ export default class Main extends Component {
         });
         
         if (!nameErrors && !phoneErrors) {
+            this.setState({
+                message: { isFetching: true, send: false}
+            });
             send({
                 name: this.state.name.value,
                 phone: this.state.phone.value,
