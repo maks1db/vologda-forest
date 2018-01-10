@@ -7,7 +7,7 @@ import Row from 'Controls/Row.jsx';
 import Input from 'Controls/Input.jsx';
 import Textarea from 'Controls/Textarea.jsx';
 
-const Item = ({ ico, children, animation }) => (
+const Item = ({ ico, children }) => (
    
     <div className={styles.request_item}>
         <div className={styles.request_icon}><i className={`fa ${ico}`}></i></div>
@@ -28,7 +28,7 @@ export default class IndexSreen extends PureComponent {
 
     render() {
 
-        const { onSendRequest } = this.props;
+        const { onSendRequest, message } = this.props;
 
         return (
             <section className={`${styles.section} ${styles.section_background}`} id="request">
@@ -40,7 +40,7 @@ export default class IndexSreen extends PureComponent {
                         <h5>Есть вопросы?</h5>
                     </ScrollAnimation>
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-                        <h2>Оставьте заявку и мы свяжемся с вами в течении нескольких минут</h2>
+                        <h2>Оставьте заявку и мы свяжемся с вами в ближайшее время</h2>
                     </ScrollAnimation>
                     <Row>
                         <Col number={6}>
@@ -76,6 +76,7 @@ export default class IndexSreen extends PureComponent {
                                     />
                                     <button 
                                         onClick={onSendRequest}
+                                        disabled={message.send || message.isFetching}
                                         style={{
                                             background:'#FFDC40',
                                             color:'#313131',
@@ -83,7 +84,10 @@ export default class IndexSreen extends PureComponent {
                                             fontWeight: 600
                                         }}
                                         type="button" 
-                                        className="btn btn-success">Заказать звонок</button>
+                                        className="btn btn-success">
+                                        {message.isFetching ? 'Отправляется...' : 
+                                            message.send ? 'Заявка отправлена' : 'Заказать звонок' }
+                                    </button>
                                 </div>
                             </ScrollAnimation>
                         </Col>

@@ -45,7 +45,8 @@ export default class Main extends Component {
             description: {
                 value: '',
                 error: false
-            }
+            },
+            message: {isFetching: false, send: false }
         };
 
         this.clickSendButton = false;
@@ -53,6 +54,9 @@ export default class Main extends Component {
 
     onSendRequest = () => {
         this.clickSendButton = true;
+        this.setState({
+            message: { isFetching: true, send: false}
+        });
 
         const nameErrors = validate('name', this.state.name.value);
         const phoneErrors = validate('phone', this.state.phone.value);
@@ -71,6 +75,9 @@ export default class Main extends Component {
                 .then(() => {
                     toastr.success('Заявка отправлена', 
                         'Ваша заявка отправлена нашим менеджерам.');
+                    this.setState({
+                        message: { isFetching: false, send: true}
+                    });
                 });
         }
 

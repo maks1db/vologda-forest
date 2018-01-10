@@ -1,6 +1,6 @@
 {
   "name": "vologda-forest",
-  "version": "0.7.4",
+  "version": "0.8.0",
   "description": "Сайт для крестной сына",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,8 @@
     "react-masonry-component": "^6.0.2",
     "babel-polyfill": "^6.26.0",
     "react-animate-on-scroll": "^1.6.0",
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "nodemailer": "^4.4.1"
   },
   "devDependencies": {
     "eslint": "^4.7.0",
