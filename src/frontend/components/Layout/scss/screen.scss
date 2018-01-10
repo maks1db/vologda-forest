@@ -1,0 +1,88 @@
+.subheader{
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: relative;
+    &:before {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .screens {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -3;
+        top:0;
+        left:0;  
+        animation: opacity ease-in-out .5s;
+        overflow: hidden;
+        div {
+            position: absolute;
+            background-repeat: no-repeat;
+            z-index: -3;
+            width: 100%;
+            height: 100%;
+            top:0;
+            left:0;
+            transition: transform ease-in-out 1s, scale linear 60s;
+        }
+
+    }
+    .active {
+        animation: scale linear 200s infinite;
+    }
+    .content {
+        z-index: 1;
+    }
+    @keyframes opacity {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    .screenInfo {
+        position: absolute;
+        width:100%;
+        height: 100vh;
+        z-index: -2;
+        animation: opacity ease-in-out .5s;
+        .author{
+            left:30px;
+            bottom: 60px;
+            font-size: 30px;     
+        }
+        .description {
+            bottom: 20px;
+            font-size: 24px; 
+            left:50px;
+        }
+        .author, .description {
+            color: #fff;
+            position: fixed;
+            font-weight: bold;
+            text-shadow: 1px 2px 4px rgba(0,0,0,.8);
+        }
+    }
+}
+
+.bigSize {
+    // animation: move-animation linear 30s;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-color: #313131 !important;
+}
+@keyframes move-animation {
+    0% {
+        background-position-y: -400px
+    }
+    100% {
+        background-position-y: -1000px
+    }
+}
