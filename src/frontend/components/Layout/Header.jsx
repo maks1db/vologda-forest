@@ -5,24 +5,32 @@ import classname from 'helpers/classname.js';
 import ToTop from 'react-scroll-top';
 import scrollTo from 'helpers/scrollTo';
 
+const navClick = (selector, onClick, event) => {
+    event.preventDefault();
+    if(history.pushState) {
+        history.pushState(null, null, selector);
+    }
+    else {
+        location.hash = selector;
+    }
+    scrollTo(selector);
+    onClick();
+};
+
 const NavItems = ( { onClick }) => {
     return(
         <ul>
-            <NavLi title="Главная" onClick={() => {
-                scrollTo('#main');
-                onClick();
+            <NavLi title="Главная" href="#main" onClick={(e) => {
+                navClick('#main', onClick, e);
             }}/>
-            <NavLi title="О нас" onClick={() => {
-                scrollTo('#about');
-                onClick();
+            <NavLi title="О нас" href="#about" onClick={(e) => {
+                navClick('#about', onClick, e);
             }}/>
-            <NavLi title="Продукция" onClick={() => {
-                scrollTo('#items');
-                onClick();
+            <NavLi title="Продукция" href="#items" onClick={(e) => {
+                navClick('#items', onClick, e);
             }} />
-            <NavLi title="Контакты" onClick={() => {
-                scrollTo('#contacts');
-                onClick();
+            <NavLi title="Контакты" href="#contacts" onClick={(e) => {
+                navClick('#contacts', onClick, e);
             }} />
         </ul>);
 };
