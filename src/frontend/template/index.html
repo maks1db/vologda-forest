@@ -21,11 +21,21 @@
         <meta name="twitter:title" content="Вологодский лес - дешевые пиломатериалы в Липецке"/>
         <meta name="twitter:description" content="Пиломатериалы из вологодского леса по доступным ценам. Премиум и бюджетные категории. Доставка личным транспортом."/>
         <meta name="twitter:image:src" content="/assets/images/forest.png"/>
-
         ${link-path}
     </head>
     <body>   
         <div id="root"></div>
+        <div itemscope itemtype="http://schema.org/Organization" style="display:none">
+            <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <img itemprop="image" src="http://вологодскийлес48.рф/assets/images/ico.png" />
+            </span> 
+            <meta itemprop="name" content="Вологодский лес - дешевые пиломатериалы в Липецке"></meta>
+            <meta itemprop="telephone" content="+7 (4742) 71-82-94, 34-80-94, +7 (951) 301-84-59"></meta>
+            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <span itemprop="streetAddress">Трубный проезд, вл. 6</span>
+                <span itemprop="postalCode">398037</span>
+                <span itemprop="addressLocality">г. Липецк</span>
+            </span>
+        </div>
         <script type="text/javascript" async src="${js-path}index.js?v={version}"></script>
-    </body>
 </html>
