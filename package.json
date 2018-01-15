@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "mongodb": "^3.0.1",
-    "mongoose": "^5.0.0-rc1",
     "body-parser": "^1.18.2",
     "camelcase": "^4.1.0",
     "axios": "^0.17.1",
@@ -77,6 +75,16 @@
     "babel-eslint": "^8.1.2",
     "webpack-bundle-analyzer": "^2.9.1",
     "replaceall": "^0.1.6"
+  },
+  "_moduleAliases": {
+    "Controls"      : "./src/frontend/components/Controls",
+    "Layout"      : "./src/frontend/components/Layout",
+    "Screens"      : "./src/frontend/components/Screens",
+    "containers"      : "./src/frontend/containers",
+    "helpers"      : "./src/frontend/helpers",
+    "store"      : "./src/frontend/store",
+    "reducers"      : "./src/frontend/reducers",
+    "frontend"     : "./src/frontend"
   },
   "author": "Skvortsov Maksim",
   "license": "MIT"
