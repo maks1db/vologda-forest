@@ -27,6 +27,10 @@ class Jsp {
         return this;
     }
 
+    getText() {
+        return this.text;
+    }
+
     save() {
         fs.writeFileSync(this.output, this.text, {
             encoding: 'utf8'

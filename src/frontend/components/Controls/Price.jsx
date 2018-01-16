@@ -1,11 +1,15 @@
 import React, { PureComponent } from 'react';
-import styles from './price.scss';
+
+if (process.env.BROWSER) {
+    require('./price.scss');
+}
+
 
 export default class Price extends PureComponent {
 
     render() {
         const { children } = this.props;
         
-        return <label className={styles.price}>{children}</label>;
+        return <label className="price">{children}</label>;
     }
 }

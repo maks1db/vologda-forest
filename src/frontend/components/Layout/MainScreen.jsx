@@ -1,5 +1,9 @@
 import React from 'react';
-import styles from './scss/screen.scss';
+
+if (process.env.BROWSER) {
+    require('./scss/screen.scss');
+}
+
 
 const imgCount = 4;
 
@@ -14,13 +18,18 @@ export default class MainScreen extends React.Component {
     }
 
     onResize = () => {
-        this.setState({
-            width: window.innerWidth
-        });
+        if (process.env.BROWSER) {
+            this.setState({
+                width: window.innerWidth
+            });
+        }
+        
     };
 
     componentWillMount() {
-        window.addEventListener('resize', this.onResize);
+        if (process.env.BROWSER) {
+            window.addEventListener('resize', this.onResize);
+        }
         this.onResize();
 
         this.timer = setInterval(() => {
@@ -68,8 +77,8 @@ export default class MainScreen extends React.Component {
         }
         return (
             (
-                <div className={`${styles.subheader}`} id="main">
-                    <div className={styles.screens}>
+                <div className="subheader" id="main">
+                    <div className="screens">
                         {
                             items.map(x=>(<div
                                 key={x.id} 

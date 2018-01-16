@@ -1,14 +1,17 @@
 import React, { PureComponent } from 'react';
-import styles from './scss/main.scss';
 import ScrollAnimation from 'react-animate-on-scroll';
 import scrollTo from 'helpers/scrollTo';
+
+if (process.env.BROWSER) {
+    require('./scss/main.scss');
+}
 
 export default class IndexSreen extends PureComponent {
 
     render() {
         return (
-            <div className={styles.main} id="main">
-                <article className={styles.article}>
+            <div className="main" id="main">
+                <article className="article">
                     <div>
                         <h4>
                             г.&nbsp;Липецк, Трубный&nbsp;проезд, вл.&nbsp;6<br />
@@ -29,7 +32,7 @@ export default class IndexSreen extends PureComponent {
                                 location.hash = selector;
                             }
                             scrollTo(selector);
-                        }} className={styles.register}>
+                        }} className="register">
                             Заказать звонок<span className="fa fa-long-arrow-right"></span>
                         </a>
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true} delay={1000} offset={-200}>

@@ -22,7 +22,7 @@ const JspVars = new Jsp({
 const version = require('./package.json').version;
 
 JspVars.replace('{version}', `${isDevelopment ? '' : version}`);
-
+JspVars.replace('${content}', '');
 let publicPath = '/assets';
 if (isDevelopment) {
     JspVars
@@ -70,7 +70,7 @@ if (!isDevelopment) {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract( {
             fallback: 'style-loader', 
-            use: 'css-loader?source-map&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass-loader',
+            use: 'css-loader!postcss-loader!sass-loader',
             publicPath: '/assets/' 
         } )
     }; 
@@ -87,7 +87,7 @@ else {
     sassLoader = { 
         test: /\.scss$/, 
         use: ['style-loader', 
-            'css-loader?source-map&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+            'css-loader',
             'sass-loader'] 
     };
 }

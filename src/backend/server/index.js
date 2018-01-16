@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'dev') {
 const port = 4103;
 
 app.use('', routes);
-app.use('/test', renderer);
+app.use('/', renderer);
 app.get('*',function(req,res){
     res.sendFile(path.resolve(__dirname, '../../../public/', 'index.html'));
 });
