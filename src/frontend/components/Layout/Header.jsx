@@ -63,11 +63,11 @@ export default class Header extends React.PureComponent {
         
     }
 
-    componentWilllMount() {
+    componentWillMount() {
         
         window.addEventListener('scroll', this.onScroll);
         this.setState({
-            background: window.pageYOffset > 10
+            background: true
         });
     }
 
