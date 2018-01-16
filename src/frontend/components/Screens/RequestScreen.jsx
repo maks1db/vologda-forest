@@ -1,16 +1,19 @@
 import React, { PureComponent } from 'react';
-import styles from './scss/main.scss';
-import styles_request from './scss/request.scss';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Col from 'Controls/Col.jsx';
 import Row from 'Controls/Row.jsx'; 
 import Input from 'Controls/Input.jsx';
 import Textarea from 'Controls/Textarea.jsx';
 
+if (process.env.BROWSER) {
+    require('./scss/main.scss');
+    require('./scss/request.scss');
+}
+
 const Item = ({ ico, children }) => (
    
-    <div className={styles.request_item}>
-        <div className={styles.request_icon}><i className={`fa ${ico}`}></i></div>
+    <div className="request_item">
+        <div className="request_icon"><i className={`fa ${ico}`}></i></div>
         <p>{children}</p>
     </div>
     
@@ -31,8 +34,8 @@ export default class IndexSreen extends PureComponent {
         const { onSendRequest, message } = this.props;
 
         return (
-            <section className={`${styles.section} ${styles.section_background}`} id="request">
-                <div className={styles.content} style={{
+            <section className="section section_background" id="request">
+                <div className="content" style={{
                     paddingLeft: '15px',
                     paddingRight: '15px'
                 }}>
@@ -58,7 +61,7 @@ export default class IndexSreen extends PureComponent {
                         </Col>
                         <Col number={6}>
                             <ScrollAnimation animateIn="fadeInRight" animateOnce={true} offset={-100}>
-                                <div className={styles_request.controls}>
+                                <div className="controls">
                                     <Input
                                         label="Ваше имя*"
                                         {...init('name', this.props)}

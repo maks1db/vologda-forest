@@ -1,19 +1,22 @@
 import React, { PureComponent } from 'react';
-import styles from './scss/main.scss';
 import Col from 'Controls/Col.jsx';
 import Row from 'Controls/Row.jsx'; 
 import Price from 'Controls/Price.jsx';
 import ScrollAnimation from 'react-animate-on-scroll';
 
+if (process.env.BROWSER) {
+    require('./scss/main.scss');
+}
+
 const Item = ({ img, name, posY, children, price }) => (
     
     <Col number={4}>
-        <div className={styles.box}>
-            <div className={styles.img} style={{
+        <div className="box">
+            <div className="img" style={{
                 backgroundImage: `url("/assets/images/items/${img}")`,
                 backgroundPositionY: posY ? '0px' : 'none'
             }}></div>
-            <h3 className={styles.bold}>{name}</h3>
+            <h3 className="bold">{name}</h3>
             <Price>{price}</Price>
             <p>{children}</p>
         </div>
@@ -25,8 +28,8 @@ export default class IndexSreen extends PureComponent {
 
     render() {
         return (
-            <section className={`${styles.section} ${styles.section_empty} ${styles.compact}`} id="items">
-                <div className={styles.content}>
+            <section className="section section_empty compact" id="items">
+                <div className="content">
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                         <h5>НАША ПРОДУКЦИЯ</h5>
                     </ScrollAnimation>

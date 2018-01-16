@@ -1,14 +1,17 @@
 import React, { PureComponent } from 'react';
-import styles from './scss/main.scss';
 import Col from 'Controls/Col.jsx';
 import Row from 'Controls/Row.jsx'; 
 import ScrollAnimation from 'react-animate-on-scroll';
 
+if (process.env.BROWSER) {
+    require('./scss/main.scss');
+}
+
 const Advantage = ({ ico, children, delay}) => (
     <Col number={4}>
         <ScrollAnimation animateIn="fadeInUp" animateOnce={true} delay={delay}>
-            <div className={styles.advantage}>
-                <div className={styles.advantage_icon}><i className={`fa ${ico}`}></i></div> 
+            <div className="advantage">
+                <div className="advantage_icon"><i className={`fa ${ico}`}></i></div> 
                 <h3>{ children }</h3>						
             </div>
         </ScrollAnimation>
@@ -19,12 +22,8 @@ export default class AdvantageSreen extends PureComponent {
 
     render() {
         return (
-            <section className={`${styles.section} 
-                ${styles.section_empty} 
-                ${styles.section_disable_bottom }
-                ${styles.compact }
-                `} id="advantage">
-                <div className={styles.content}>
+            <section className="section section_empty section_disable_bottom compact" id="advantage">
+                <div className="content">
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                         <h5>НАШИ ПРЕИМУЩЕСТВА</h5>
                     </ScrollAnimation>

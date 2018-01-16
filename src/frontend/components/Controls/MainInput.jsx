@@ -1,8 +1,12 @@
 import React from 'react';
 import deleteProps from 'helpers/deleteProps.js';
-import classname from 'helpers/classname.js';
-import styles from './mainInput.scss';  
+import classname from 'helpers/classname.js';  
 import Inputmask from 'react-input-mask';
+
+if (process.env.BROWSER) {
+    require('./mainInput.scss');
+}
+
 
 const Control = (props) => {
     if (props.control === 'input') return <Inputmask {...deleteProps(props, 'control')} />;
@@ -30,7 +34,7 @@ export default class Input extends React.PureComponent {
                     {...deleteProps(this.props, ['onValidation','reqired', 'errorMessage'])}
                 />
                 {errorMessage !== false && (<span className="glyphicon glyphicon-remove form-control-feedback"></span>)}
-                {errorMessage !== false && (<label className={styles.error}>{errorMessage}</label>)}
+                {errorMessage !== false && (<label className="error">{errorMessage}</label>)}
             </div>
         );
     }

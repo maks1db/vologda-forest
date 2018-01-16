@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const routes = require('../routes');
+const renderer = require('./renderer');
 
 const app = express();  
 
@@ -30,9 +31,12 @@ if (process.env.NODE_ENV === 'dev') {
 const port = 4103;
 
 app.use('', routes);
+app.use('/', renderer);
 app.get('*',function(req,res){
     res.sendFile(path.resolve(__dirname, '../../../public/', 'index.html'));
 });
+
+
 
 app.listen(port, ()=> console.log('Server VOLOGDA-FOREST on ' + port));
 
