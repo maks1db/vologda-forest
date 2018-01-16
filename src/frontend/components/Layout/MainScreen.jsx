@@ -1,4 +1,5 @@
 import React from 'react';
+import 'helpers/serverSideObjects';
 
 if (process.env.BROWSER) {
     require('./scss/screen.scss');
@@ -18,18 +19,15 @@ export default class MainScreen extends React.Component {
     }
 
     onResize = () => {
-        if (process.env.BROWSER) {
-            this.setState({
-                width: window.innerWidth
-            });
-        }
-        
+        this.setState({
+            width: window.innerWidth
+        }); 
     };
 
     componentWillMount() {
-        if (process.env.BROWSER) {
-            window.addEventListener('resize', this.onResize);
-        }
+        
+        window.addEventListener('resize', this.onResize);
+        
         this.onResize();
 
         this.timer = setInterval(() => {

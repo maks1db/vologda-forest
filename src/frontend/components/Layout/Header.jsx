@@ -3,11 +3,11 @@ import NavLi from './NavLi.jsx';
 import classname from 'helpers/classname.js';
 import ToTop from 'react-scroll-top';
 import scrollTo from 'helpers/scrollTo';
+import 'helpers/serverSideObjects';
 
 if (process.env.BROWSER) {
     require('./scss/header.scss');
 }
-
 
 const navClick = (selector, onClick, event) => {
     event.preventDefault();
@@ -52,28 +52,27 @@ export default class Header extends React.PureComponent {
     onScroll = () => {
         const background = this.state.background;
 
-        if (process.env.BROWSER) {
-            if (background && window.scrollY < 10) {
-                this.setState({background: false});
-            }
-    
-            if (!background && window.scrollY > 10) {
-                this.setState({background: true});
-            }
+        
+        if (background && window.pageYOffset < 10) {
+            this.setState({background: false});
         }
-    }
 
-    componentWillMount() {
-        if (process.env.BROWSER) {
-            window.addEventListener('scroll', this.onScroll);
+        if (!background && window.pageYOffset > 10) {
+            this.setState({background: true});
         }
         
     }
 
+    componentWilllMount() {
+        
+        window.addEventListener('scroll', this.onScroll);
+        this.setState({
+            background: window.pageYOffset > 10
+        });
+    }
+
     componentWillUnmount() {
-        if (process.env.BROWSER) {
-            window.removeEventListener('scroll', this.onScroll);
-        }
+        window.removeEventListener('scroll', this.onScroll);
     }
 
     onChangeActiveMenu = (value) => {
@@ -83,9 +82,10 @@ export default class Header extends React.PureComponent {
 
     render() {
 
-        const { activeMenu } = this.state;
+        const { activeMenu, background } = this.state;
 
-        return (<div {...classname({background: this.state.background}, 'header')}>
+        console.log(this.state);
+        return (<div {...classname({background: background}, 'header')}>
             <div className='title'>Вологодский лес</div> 
             <nav {...classname({active_menu: activeMenu}, 'navigation')}>
                 <NavItems onClick={() => this.onChangeActiveMenu(false)} />   
