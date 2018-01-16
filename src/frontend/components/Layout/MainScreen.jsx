@@ -13,7 +13,7 @@ export default class MainScreen extends React.Component {
     constructor() {
         super();
         this.state = {
-            width: 0,
+            width: 2500,
             activeImg: 0
         };
     }
@@ -24,12 +24,9 @@ export default class MainScreen extends React.Component {
         }); 
     };
 
-    componentWillMount() {
-        
+    componentDidMount() {
         window.addEventListener('resize', this.onResize);
-        
         this.onResize();
-
         this.timer = setInterval(() => {
             let activeImg = this.state.activeImg + 1;
             if (activeImg > imgCount - 1) {

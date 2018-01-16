@@ -48,8 +48,6 @@ export default class ContactsSreen extends PureComponent {
                         </ScrollAnimation>
                         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                             <p><b>г.&nbsp;Липецк, Трубный&nbsp;проезд, вл.&nbsp;6</b></p>
-                        </ScrollAnimation> 
-                        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                             <p>
                                 <b>+7 (4742) 71-82-94, 34-80-94,<br />
                                 +7 (951) 301-84-59</b>

@@ -63,11 +63,11 @@ export default class Header extends React.PureComponent {
         
     }
 
-    componentWillMount() {
+    componentDidMount() {
         
         window.addEventListener('scroll', this.onScroll);
         this.setState({
-            background: true
+            background: window.pageYOffset > 10
         });
     }
 
@@ -84,7 +84,6 @@ export default class Header extends React.PureComponent {
 
         const { activeMenu, background } = this.state;
 
-        console.log(this.state);
         return (<div {...classname({background: background}, 'header')}>
             <div className='title'>Вологодский лес</div> 
             <nav {...classname({active_menu: activeMenu}, 'navigation')}>

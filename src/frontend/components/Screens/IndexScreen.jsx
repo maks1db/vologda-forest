@@ -35,12 +35,11 @@ export default class IndexSreen extends PureComponent {
                         }} className="register">
                             Заказать звонок<span className="fa fa-long-arrow-right"></span>
                         </a>
-                        <ScrollAnimation animateIn="fadeInUp" animateOnce={true} delay={1000} offset={-200}>
-                            <h4>
-                                Есть вопросы? <br/>
-                                Оставьте заявку на звонок прямо сейчас
-                            </h4>       
-                        </ScrollAnimation>
+                        <h4>
+                            Есть вопросы? <br/>
+                            Оставьте заявку на звонок прямо сейчас
+                        </h4>       
+
                     </div>
                 </article>         
             </div>

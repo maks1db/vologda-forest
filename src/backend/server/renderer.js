@@ -1,5 +1,5 @@
-const React = require('react');
-const ReactDOM = require('react-dom/server');
+import React from 'react';
+import ReactDOM from 'react-dom/server';
 import JspReplace from 'frontend/jsp_replace';
 import path from 'path';
 import configureStore from 'store';
