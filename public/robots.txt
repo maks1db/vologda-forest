@@ -1,3 +1,2 @@
 User-agent: *
-Sitemap: http://вологодскийлес48.рф/sitemap.xml
 Host: http://вологодскийлес48.рф
