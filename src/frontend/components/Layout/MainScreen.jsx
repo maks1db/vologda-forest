@@ -53,7 +53,7 @@ export default class MainScreen extends React.Component {
         for (i = 1; i<=imgCount; i++) {
             items.push({
                 id:i-1,
-                url: `/assets/images/img_${i}.jpg`,
+                url: `/assets/images/img_${i}_min.jpg`,
                 position: 0
             });
         }

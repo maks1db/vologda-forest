@@ -26,14 +26,39 @@ const Item = ({ img, name, posY, children, price }) => (
 
 export default class IndexSreen extends PureComponent {
 
+    constructor() {
+        super();
+
+        this.state = {
+            show: false
+        };
+    }
+
+    onScroll = () => {
+        const scroll = window.scrollY;
+        if (this.item.offsetTop <= scroll + 300) {
+            this.setState({
+                show: true
+            });    
+            window.removeEventListener('scroll', this.onScroll);
+        }
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.onScroll);
+    }
+
     render() {
+
+        const { show } = this.state;
+
         return (
-            <section className="section section_empty compact" id="items">
+            <section className="section section_empty compact" id="items" ref={(e) => this.item = e }>
                 <div className="content">
                     <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
                         <h5>НАША ПРОДУКЦИЯ</h5>
                     </ScrollAnimation>
-                    <Row>
+                    { show && <Row >
                         <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
                             <Item 
                                 img={'wood.jpg'}
@@ -85,7 +110,7 @@ export default class IndexSreen extends PureComponent {
                                 Липа – это уникальный материал, который часто используется для парной. Она обладает прочностью и долговечностью.
                             </Item>
                         </ScrollAnimation>
-                    </Row>
+                    </Row> }
                 </div>   
             </section>
         );
